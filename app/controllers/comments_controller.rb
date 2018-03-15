@@ -20,6 +20,12 @@ class CommentsController < ApplicationController
   end
 
   def top_commenters
+       @users = User.joins(:comments)
+                    .where('comments.created_at >= ?', 1.week.ago.midnight)
+                    .select("users.name, count(comments.id) AS comment_count")
+                    .group('users.id')
+                    .order('comment_count desc')
+                    .limit(10)
   end
 
   private
