@@ -6,7 +6,9 @@ class MoviesController < ApplicationController
   end
 
   def show
-    @movie = Movie.find(params[:id])
+    @movie = Movie.eager_load(:comments).find(params[:id])
+    @comments = @movie.comments
+    binding.pry
   end
 
   def send_info
