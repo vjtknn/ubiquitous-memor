@@ -11,6 +11,7 @@ gem "jquery-rails"
 gem "sass-rails"
 gem "sqlite3"
 gem "uglifier"
+gem 'puma', '~> 3.4'
 
 group :development do
   gem "better_errors"
