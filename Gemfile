@@ -12,6 +12,7 @@ gem "sass-rails"
 gem "sqlite3"
 gem "uglifier"
 gem 'puma', '~> 3.4'
+gem "font-awesome-rails"
 
 group :development do
   gem "better_errors"
