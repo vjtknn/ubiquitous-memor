@@ -1,1 +1,15 @@
-%h1 Top commenter in last week
+.row
+  .col-md-8.col-md-offset-2.col-lg-8.col-lg-offset-2
+    %h1.text-center Top 10 commenters from last week
+    %table.table.table-striped
+      %thead
+        %tr
+          %th #
+          %th User
+          %th Number of comments
+      %thbody
+        - @users.each_with_index do |user, i|
+          %tr
+            %td= i + 1
+            %td= user.name
+            %td= user.comment_count
