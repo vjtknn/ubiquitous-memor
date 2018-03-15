@@ -6,7 +6,7 @@
           %h4
             =comment.content
           %p
-            ="Created " + time_ago_in_words(comment.created_at) + ", by " + comment.user.name
+            = comment.comment_info
             -if current_user
               -if comment.user_id == current_user.id
                 =link_to (fa_icon "trash"), movie_comment_path(comment.movie, comment), method: :delete,  data: { confirm: 'Are you sure?' }
