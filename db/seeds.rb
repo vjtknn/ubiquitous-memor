@@ -85,8 +85,8 @@ end
 
 Rails.logger.info "Creating comments..."
 
-Movie.all.each do |movie|
-  User.all.each do |user|
-    Comment.create!(user_id: user.id, movie_id: movie.id, content: Faker::DrWho.quote)
+User.all.each do |user|
+  (user.id + 10).times do |i|
+    Comment.create!(user_id: user.id, movie_id: (i + 1), content: Faker::DrWho.quote)
   end
 end

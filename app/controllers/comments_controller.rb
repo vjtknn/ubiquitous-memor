@@ -19,6 +19,10 @@ class CommentsController < ApplicationController
     end
   end
 
+  def top_commenters
+       @users = CommentersQuery.new.fetch_top_commenters
+  end
+
   private
 
   def comment_params
