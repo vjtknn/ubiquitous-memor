@@ -102,6 +102,8 @@ GEM
     faker (1.8.7)
       i18n (>= 0.7)
     ffi (1.9.18)
+    font-awesome-rails (4.7.0.3)
+      railties (>= 3.2, < 5.2)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     haml (5.0.4)
@@ -152,6 +154,7 @@ GEM
     pry-rails (0.3.6)
       pry (>= 0.10.4)
     public_suffix (3.0.1)
+    puma (3.11.3)
     rack (2.0.3)
     rack-test (0.8.2)
       rack (>= 1.0, < 3)
@@ -284,10 +287,12 @@ DEPENDENCIES
   draper
   factory_bot_rails
   faker
+  font-awesome-rails
   haml-rails
   jquery-rails
   letter_opener
   pry-rails
+  puma (~> 3.4)
   rails (= 5.1.4)
   rails-erd
   rspec-rails

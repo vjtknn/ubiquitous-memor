@@ -6,7 +6,8 @@ class MoviesController < ApplicationController
   end
 
   def show
-    @movie = Movie.find(params[:id])
+    @movie = Movie.eager_load(comments: :user).find(params[:id]).decorate
+    @comments = @movie.comments.decorate
   end
 
   def send_info

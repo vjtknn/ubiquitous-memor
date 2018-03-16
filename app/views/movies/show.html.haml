@@ -3,3 +3,11 @@
   = @movie.description
 - if user_signed_in?
   %p= link_to 'Email me details about this movie', send_info_movie_path(@movie), class: 'btn btn-sm btn-default'
+-if current_user
+  - unless current_user.comments.any? {|comment| comment.movie_id == @movie.id }
+    =render 'comments/form'
+- if @movie.comments.any?
+  %h4 Comments:
+  .row
+    .col-md-8.col-md-offset-2.col-lg-8.col-lg-offset-2
+      =render 'comments/comment', comments: @comments

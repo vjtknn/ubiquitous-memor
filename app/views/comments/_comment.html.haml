@@ -1,0 +1,12 @@
+%table.table.table-striped
+  %tbody
+    - comments.each do |comment|
+      %tr
+        %td
+          %h4
+            =comment.content
+          %p
+            = comment.comment_info
+            -if current_user
+              -if comment.user_id == current_user.id
+                =link_to (fa_icon "trash"), movie_comment_path(comment.movie, comment), method: :delete,  data: { confirm: 'Are you sure?' }
