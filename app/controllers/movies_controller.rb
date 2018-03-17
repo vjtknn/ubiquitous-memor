@@ -8,6 +8,10 @@ class MoviesController < ApplicationController
   def show
     @movie = Movie.eager_load(comments: :user).find(params[:id]).decorate
     @comments = @movie.comments.order('created_at DESC').decorate
+    @comment = @movie.comments.build
+    if current_user
+      @current_user_movie_comments_id = current_user.comments.pluck(:movie_id)
+    end
   end
 
   def send_info

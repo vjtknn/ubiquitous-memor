@@ -4,7 +4,7 @@ class TitleBracketsValidator < ActiveModel::Validator
     initialize_brackets_and_stack
     validate_mismached_or_empty_brackets_in_title
   end
-  
+
   private
 
   def initialize_record(record:)
