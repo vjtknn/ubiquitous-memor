@@ -20,7 +20,7 @@ class CommentsController < ApplicationController
   end
 
   def top_commenters
-       @users = CommentersQuery.new.fetch_top_commenters
+    @users = CommentersQuery.new.fetch_top_commenters
   end
 
   private
