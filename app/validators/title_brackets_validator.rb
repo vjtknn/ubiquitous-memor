@@ -1,13 +1,12 @@
 class TitleBracketsValidator < ActiveModel::Validator
   def validate(record)
-    @record = record
-    @title = record.title
+    initialize_record(record: record)
     @brackets = { '(' => ')', '[' => ']', '{' => '}', '<' => '>' }
     @openings = @brackets.keys
     @closings = @brackets.values
     @stack = []
 
-    record.title.each_char.with_index do |char, i|
+    @title.each_char.with_index do |char, i|
       if @openings.include?(char)
         error_message if @closings.include? @title[i + 1]
         @stack << char
@@ -22,6 +21,10 @@ class TitleBracketsValidator < ActiveModel::Validator
 
   private
 
+  def initialize_record(record:)
+    @record = record
+    @title = record.title
+  end
   def error_message
     @record.errors[:title] << 'mismached bracket'
   end
