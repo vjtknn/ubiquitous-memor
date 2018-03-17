@@ -13,7 +13,8 @@
 #
 
 class Movie < ApplicationRecord
+  include ActiveModel::Validations
+  validates_with TitleBracketsValidator
   belongs_to :genre
   has_many :comments
-  validates_with TitleBracketsValidator
 end
